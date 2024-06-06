@@ -27,10 +27,12 @@ body {
 .contest-preview {
   margin: 1rem;
   border: thin solid #ccc;
+  border-radius: 3px;
 }
 
 .contest-preview .category {
   border-bottom: thin solid #ccc;
+
   padding: 0.5rem;
   font-weight: bold;
   color: #333;
