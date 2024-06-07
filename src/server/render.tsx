@@ -9,7 +9,7 @@ const serverRender = async () => {
     <App initialData={{ contests }} />,
   );
 
-  return { initialMarkup };
+  return { initialMarkup, initialData: { contests } };
 };
 
 export default serverRender;
