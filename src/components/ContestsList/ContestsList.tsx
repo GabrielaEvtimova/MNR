@@ -1,9 +1,10 @@
 import React from "react";
-import Contest from "../Contest/Contest";
+import Contest from "../ContestPreview/ContestPreview";
 import { useEffect, useState } from "react";
 import { fetchContests } from "../../api-client";
+import Header from "../Header/Header";
 
-const ContestsList = ({ initialContests }) => {
+const ContestsList = ({ initialContests, onContestClick }) => {
   const [contests, setContests] = useState(initialContests);
 
   useEffect(() => {
@@ -11,11 +12,18 @@ const ContestsList = ({ initialContests }) => {
   }, []);
 
   return (
-    <div className="contest-list">
-      {contests.map((c) => (
-        <Contest key={c.id} contest={c} />
-      ))}
-    </div>
+    <>
+      <Header message="Naming Contests" />
+      <div className="contest-list">
+        {contests.map((c) => (
+          <Contest
+            key={c.id}
+            contest={c}
+            onClick={onContestClick}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
