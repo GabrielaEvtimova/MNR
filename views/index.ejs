@@ -6,14 +6,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <link rel="stylesheet" href="/style.css" />
     <title>Naming Contests</title>
     <script>
-      window.initialData = <%- JSON.stringify(initialData.contests) -%>
+      window.initialData = <%- JSON.stringify(initialData) -%>
     </script>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="app"><%- initialMarkup -%></div>
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { fetchContest } from "../../api-client";
 import Header from "../Header/Header";
 
-const Contest = ({ id }) => {
-  const [contest, setContest] = useState<object>({});
+const Contest = ({ initialContest }) => {
+  const [contest, setContest] = useState<object>(initialContest);
 
-  useEffect(() => {
-    fetchContest(id).then((contest) => {
-      setContest(contest);
-    });
-  }, [id]);
+  // useEffect(() => {
+  //   fetchContest(contest.id).then((contest) => {
+  //     setContest(contest);
+  //   });
+  // }, [contest.id]);
 
   return (
     <>
