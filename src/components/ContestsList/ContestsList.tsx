@@ -6,7 +6,6 @@ import ContestPreview from "../ContestPreview/ContestPreview";
 
 const ContestsList = ({ initialContests, onContestClick }) => {
   const [contests, setContests] = useState(initialContests);
-  console.log(contests);
 
   // useEffect(() => {
   //   fetchContestList().then((contests) => setContests(contests));

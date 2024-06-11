@@ -19,7 +19,6 @@ const App = ({ initialData }) => {
     object | undefined
   >(initialData.currentContest);
 
-  console.log(initialData);
 
   useEffect(() => {
     window.onpopstate = (event) => {
