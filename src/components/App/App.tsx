@@ -12,17 +12,20 @@ axios.get(`${API_SERVER_URL}/contests`).then((res) => {});
 // Page: ContestList or SingleContest
 
 const App = ({ initialData }) => {
-  const [page, setPage] = useState<"contestList" | "contest">("contestList");
-  const [currentContestId, setCurrentContestId] = useState<string | undefined>();
+  const [page, setPage] = useState<"contestList" | "contest">(
+    "contestList",
+  );
+  const [currentContestId, setCurrentContestId] = useState<
+    string | undefined
+  >();
 
   useEffect(() => {
-    window.onpopstate = (e) => {
-      console.log(e);
-      const newPage = e.state?.contestId
+    window.onpopstate = (event) => {
+      const newPage = event.state?.contestId
         ? "contest"
         : "contestList";
       setPage(newPage);
-      setCurrentContestId(e.state?.contestId);
+      setCurrentContestId(event.state?.contestId);
     };
   }, []);
 
@@ -46,19 +49,11 @@ const App = ({ initialData }) => {
           />
         );
       case "contest":
-        return (
-          <Contest
-            id={currentContestId}
-          />
-        );
+        return <Contest id={currentContestId} />;
     }
   };
 
-  return (
-    <div className="container">
-      {pageContent()}
-    </div>
-  );
+  return <div className="container">{pageContent()}</div>;
 };
 
 export default App;
