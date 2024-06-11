@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Contest: React.FC<{ contest: object; onClick: any }> = ({
+const ContestPreview: React.FC<{ contest: object; onClick: any }> = ({
   contest,
   onClick,
 }) => {
@@ -19,4 +19,4 @@ const Contest: React.FC<{ contest: object; onClick: any }> = ({
   );
 };
 
-export default Contest;
+export default ContestPreview;
