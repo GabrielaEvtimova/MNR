@@ -26,3 +26,17 @@ export const addNewNameToContest = async ({
 
   return resp.data.updatedContest;
 };
+
+export const addNewContest = async ({
+  contestName,
+  categoryName,
+  description,
+}) => {
+  const resp = await axios.post(`${API_SERVER_URL}/contests`, {
+    contestName,
+    categoryName,
+    description,
+  });
+
+  return resp.data.contest;
+};

@@ -1,11 +1,9 @@
 import axios from "axios";
 import { API_SERVER_URL } from "../../public-config";
 import ContestsList from "../ContestsList/ContestsList";
-import Header from "../Header/Header";
-import { useState, useEffect } from "react";
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Contest from "../Contest/Contest";
+import AddNewContest from "../AddNewContest/AddNewContest";
 
 axios.get(`${API_SERVER_URL}/contests`).then((res) => {});
 
@@ -45,14 +43,29 @@ const App = ({ initialData }) => {
     setCurrentContest(undefined);
   };
 
+  const onNewContest = (contest) => {
+    window.history.pushState(
+      { contestId: contest.id },
+      "",
+      `/contest/${contest.id}`,
+    );
+
+    setPage("contest");
+    setCurrentContest(contest);
+    location.reload();
+  };
+
   const pageContent = () => {
     switch (page) {
       case "contestList":
         return (
-          <ContestsList
-            initialContests={initialData.contests}
-            onContestClick={navigateToContest}
-          />
+          <>
+            <ContestsList
+              initialContests={initialData.contests}
+              onContestClick={navigateToContest}
+            />
+            <AddNewContest onSuccess={onNewContest} />
+          </>
         );
       case "contest":
         return (

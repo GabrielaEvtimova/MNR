@@ -4,9 +4,12 @@ import { fetchContestList } from "../../api-client";
 import Header from "../Header/Header";
 import ContestPreview from "../ContestPreview/ContestPreview";
 
-const ContestsList = ({ initialContests, onContestClick }) => {
+const ContestsList = ({
+  initialContests,
+  onContestClick,
+}) => {
   const [contests, setContests] = useState(
-    initialContests || [],
+    initialContests ?? [],
   );
 
   useEffect(() => {
