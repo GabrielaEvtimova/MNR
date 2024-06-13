@@ -30,6 +30,9 @@ const Contest = ({ initialContest, onContestListClick }) => {
       contestId: contest.id,
       newNameValue: newNameInput.value,
     });
+
+    setContest(updatedContest);
+    event.target.newName.value = null;
   };
 
   return (

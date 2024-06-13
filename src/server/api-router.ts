@@ -70,7 +70,7 @@ router.post("/contest/:contestId", async (req, res) => {
 
   // returned document would be doc.value - the updated contest
 
-  res.send({ updatedContest: doc.value });
+  res.send({ updatedContest: doc });
 });
 
 export default router;
